@@ -6,7 +6,11 @@ var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") 
     ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
 
-builder.Services.AddOpenApi();
+builder.Services.AddControllers();
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
+
+builder.Services.AddCors(options => options.AddDefaultPolicy(policy => policy.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod()));
 
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseNpgsql(connectionString));
@@ -15,8 +19,14 @@ var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
 {
-    app.MapOpenApi();
+    app.MapSwagger();
+    app.UseSwaggerUI(c =>
+    {
+        c.SwaggerEndpoint("swagger/v1/swagger.json", "Items");
+        c.RoutePrefix = string.Empty;
+    });
 }
 
-app.UseHttpsRedirection();
+//app.UseHttpsRedirection();
+app.MapControllers();
 app.Run();
