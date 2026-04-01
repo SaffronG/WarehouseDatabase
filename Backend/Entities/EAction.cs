@@ -3,11 +3,11 @@ using System.Collections.Generic;
 
 namespace Backend.Entities;
 
-public partial class Vendor
+public partial class EAction
 {
     public int Id { get; set; }
 
     public string? Name { get; set; }
 
-    public virtual ICollection<Item> Items { get; set; } = new List<Item>();
+    public virtual ICollection<ItemShipment> ItemShipments { get; set; } = new List<ItemShipment>();
 }
