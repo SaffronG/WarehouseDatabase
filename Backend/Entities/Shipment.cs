@@ -17,5 +17,5 @@ public partial class Shipment
 
     public virtual ICollection<ItemShipment> ItemShipments { get; set; } = new List<ItemShipment>();
 
-    public virtual Order? Order { get; set; }
+    public virtual PurchaseOrder? Order { get; set; }
 }

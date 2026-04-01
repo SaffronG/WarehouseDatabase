@@ -17,7 +17,7 @@ public partial class ItemShipment
 
     public int? Quantity { get; set; }
 
-    public virtual EAction? Action { get; set; }
+    public virtual ShipmentAction? Action { get; set; }
 
     public virtual Item? Item { get; set; }
 

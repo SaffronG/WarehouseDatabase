@@ -17,5 +17,5 @@ public partial class OrderItem
 
     public virtual Item? Item { get; set; }
 
-    public virtual Order? Order { get; set; }
+    public virtual PurchaseOrder? Order { get; set; }
 }

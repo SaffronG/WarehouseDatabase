@@ -16,8 +16,6 @@ public partial class AppDbContext : DbContext
     {
     }
 
-    public virtual DbSet<EAction> Actions { get; set; }
-
     public virtual DbSet<Aisle> Aisles { get; set; }
 
     public virtual DbSet<Bay> Bays { get; set; }
@@ -32,13 +30,15 @@ public partial class AppDbContext : DbContext
 
     public virtual DbSet<ItemShipment> ItemShipments { get; set; }
 
-    public virtual DbSet<Order> Orders { get; set; }
-
     public virtual DbSet<OrderItem> OrderItems { get; set; }
+
+    public virtual DbSet<PurchaseOrder> PurchaseOrders { get; set; }
 
     public virtual DbSet<Shelf> Shelves { get; set; }
 
     public virtual DbSet<Shipment> Shipments { get; set; }
+
+    public virtual DbSet<ShipmentAction> ShipmentActions { get; set; }
 
     public virtual DbSet<Vendor> Vendors { get; set; }
 
@@ -49,18 +49,6 @@ public partial class AppDbContext : DbContext
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.HasPostgresEnum("warehouse", "alphabet_enum", new[] { "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z" });
-
-        modelBuilder.Entity<EAction>(entity =>
-        {
-            entity.HasKey(e => e.Id).HasName("action_pkey");
-
-            entity.ToTable("action", "warehouse");
-
-            entity.Property(e => e.Id).HasColumnName("id");
-            entity.Property(e => e.Name)
-                .HasMaxLength(15)
-                .HasColumnName("name");
-        });
 
         modelBuilder.Entity<Aisle>(entity =>
         {
@@ -198,18 +186,6 @@ public partial class AppDbContext : DbContext
                 .HasConstraintName("shipment_id_fk");
         });
 
-        modelBuilder.Entity<Order>(entity =>
-        {
-            entity.HasKey(e => e.Id).HasName("order_pkey");
-
-            entity.ToTable("order", "warehouse");
-
-            entity.Property(e => e.Id).HasColumnName("id");
-            entity.Property(e => e.DateOrdered)
-                .HasColumnType("timestamp without time zone")
-                .HasColumnName("date_ordered");
-        });
-
         modelBuilder.Entity<OrderItem>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("order_item_pkey");
@@ -231,6 +207,20 @@ public partial class AppDbContext : DbContext
             entity.HasOne(d => d.Order).WithMany(p => p.OrderItems)
                 .HasForeignKey(d => d.OrderId)
                 .HasConstraintName("order_item_order_id_fkey");
+        });
+
+        modelBuilder.Entity<PurchaseOrder>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("order_pkey");
+
+            entity.ToTable("purchase_order", "warehouse");
+
+            entity.Property(e => e.Id)
+                .HasDefaultValueSql("nextval('warehouse.order_id_seq'::regclass)")
+                .HasColumnName("id");
+            entity.Property(e => e.DateOrdered)
+                .HasColumnType("timestamp without time zone")
+                .HasColumnName("date_ordered");
         });
 
         modelBuilder.Entity<Shelf>(entity =>
@@ -269,6 +259,20 @@ public partial class AppDbContext : DbContext
             entity.HasOne(d => d.Order).WithMany(p => p.Shipments)
                 .HasForeignKey(d => d.OrderId)
                 .HasConstraintName("order_id_fk");
+        });
+
+        modelBuilder.Entity<ShipmentAction>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("action_pkey");
+
+            entity.ToTable("shipment_action", "warehouse");
+
+            entity.Property(e => e.Id)
+                .HasDefaultValueSql("nextval('warehouse.action_id_seq'::regclass)")
+                .HasColumnName("id");
+            entity.Property(e => e.Name)
+                .HasMaxLength(15)
+                .HasColumnName("name");
         });
 
         modelBuilder.Entity<Vendor>(entity =>
