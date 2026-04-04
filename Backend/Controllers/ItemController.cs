@@ -1,19 +1,40 @@
-using System.ComponentModel.DataAnnotations;
-using System.IdentityModel.Tokens.Jwt;
-using System.Security.Claims;
-using System.Text;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.IdentityModel.Tokens;
+using Shared.Records;
+using Backend.Service;
 
 namespace Backend.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
 public class ItemController : Controller {
-    [HttpGet("/test")]
-    public IActionResult TestEntpoint() {
-        return Ok(new Test("TEST"));
+    private readonly ItemServices _itemService = new();
+
+    [HttpPost("/create_purchase_order")]
+    public async Task<IActionResult> CreatePurchaseOrder([FromBody] PurchaseOrderRecord purchaseOrder)
+    {
+        try
+        {
+            var itemService = new ItemServices();    
+            await _itemService.CreatePurchaseOrderAsync(purchaseOrder.ItemId, purchaseOrder.Quantity);
+        } 
+        catch (Exception ex)
+        {
+
+        }
+        return Ok();
+    }
+    [HttpPost("RecieveShipment")]
+    public async Task<IActionResult> RecieveShipment([FromBody] ShipmentRecord shipment)
+    {
+        try
+        {
+            var itemService = new ItemServices();    
+            await _itemService.RecieveShipmentAsync(shipment.ItemId, shipment.Quantity);
+        } 
+        catch (Exception ex)
+        {
+            
+        }
+        return Ok();
     }
 }
-
-public record Test(string text);
