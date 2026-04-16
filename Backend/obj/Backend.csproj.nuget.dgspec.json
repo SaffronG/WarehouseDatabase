@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/home/chase/Repositories/WarehouseDatabase/Backend/Backend.csproj": {}
+    "C:\\Users\\chase\\Repos\\WarehouseDatabase\\Backend\\Backend.csproj": {}
   },
   "projects": {
-    "/home/chase/Repositories/WarehouseDatabase/Backend/Backend.csproj": {
+    "C:\\Users\\chase\\Repos\\WarehouseDatabase\\Backend\\Backend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/chase/Repositories/WarehouseDatabase/Backend/Backend.csproj",
+        "projectUniqueName": "C:\\Users\\chase\\Repos\\WarehouseDatabase\\Backend\\Backend.csproj",
         "projectName": "Backend",
-        "projectPath": "/home/chase/Repositories/WarehouseDatabase/Backend/Backend.csproj",
-        "packagesPath": "/home/chase/.nuget/packages/",
-        "outputPath": "/home/chase/Repositories/WarehouseDatabase/Backend/obj/",
+        "projectPath": "C:\\Users\\chase\\Repos\\WarehouseDatabase\\Backend\\Backend.csproj",
+        "packagesPath": "C:\\Users\\chase\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\chase\\Repos\\WarehouseDatabase\\Backend\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/home/chase/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\chase\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net10.0"
@@ -26,8 +26,8 @@
           "net10.0": {
             "targetAlias": "net10.0",
             "projectReferences": {
-              "/home/chase/Repositories/WarehouseDatabase/Shared/Shared.csproj": {
-                "projectPath": "/home/chase/Repositories/WarehouseDatabase/Shared/Shared.csproj"
+              "C:\\Users\\chase\\Repos\\WarehouseDatabase\\Shared\\Shared.csproj": {
+                "projectPath": "C:\\Users\\chase\\Repos\\WarehouseDatabase\\Shared\\Shared.csproj"
               }
             }
           }
@@ -42,7 +42,7 @@
           "auditLevel": "low",
           "auditMode": "all"
         },
-        "SdkAnalysisLevel": "10.0.100"
+        "SdkAnalysisLevel": "10.0.200"
       },
       "frameworks": {
         "net10.0": {
@@ -98,7 +98,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/10.0.102/PortableRuntimeIdentifierGraph.json",
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.202/PortableRuntimeIdentifierGraph.json",
           "packagesToPrune": {
             "Microsoft.AspNetCore": "(,10.0.32767]",
             "Microsoft.AspNetCore.Antiforgery": "(,10.0.32767]",
@@ -516,17 +516,17 @@
         }
       }
     },
-    "/home/chase/Repositories/WarehouseDatabase/Shared/Shared.csproj": {
+    "C:\\Users\\chase\\Repos\\WarehouseDatabase\\Shared\\Shared.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/chase/Repositories/WarehouseDatabase/Shared/Shared.csproj",
+        "projectUniqueName": "C:\\Users\\chase\\Repos\\WarehouseDatabase\\Shared\\Shared.csproj",
         "projectName": "Shared",
-        "projectPath": "/home/chase/Repositories/WarehouseDatabase/Shared/Shared.csproj",
-        "packagesPath": "/home/chase/.nuget/packages/",
-        "outputPath": "/home/chase/Repositories/WarehouseDatabase/Shared/obj/",
+        "projectPath": "C:\\Users\\chase\\Repos\\WarehouseDatabase\\Shared\\Shared.csproj",
+        "packagesPath": "C:\\Users\\chase\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\chase\\Repos\\WarehouseDatabase\\Shared\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/home/chase/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\chase\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net10.0"
@@ -550,7 +550,7 @@
           "auditLevel": "low",
           "auditMode": "all"
         },
-        "SdkAnalysisLevel": "10.0.100"
+        "SdkAnalysisLevel": "10.0.200"
       },
       "frameworks": {
         "net10.0": {
@@ -571,7 +571,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/10.0.102/PortableRuntimeIdentifierGraph.json",
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.202/PortableRuntimeIdentifierGraph.json",
           "packagesToPrune": {
             "Microsoft.CSharp": "(,4.7.32767]",
             "Microsoft.VisualBasic": "(,10.4.32767]",
