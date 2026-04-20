@@ -154,6 +154,35 @@ public partial class AppDbContext : DbContext
 
     public virtual DbSet<VoteSubmission> VoteSubmissions { get; set; }
 
+    // Warehouse-specific DbSets
+    public virtual DbSet<EAction> Actions { get; set; }
+
+    public virtual DbSet<Aisle> Aisles { get; set; }
+
+    public virtual DbSet<Bay> Bays { get; set; }
+
+    public virtual DbSet<Bin> Bins { get; set; }
+
+    public virtual DbSet<BinLocation> BinLocations { get; set; }
+
+    public virtual DbSet<BinType> BinTypes { get; set; }
+
+    public virtual DbSet<Item> Items { get; set; }
+
+    public virtual DbSet<ItemShipment> ItemShipments { get; set; }
+
+    public virtual DbSet<OrderItem> OrderItems { get; set; }
+
+    public virtual DbSet<PurchaseOrder> PurchaseOrders { get; set; }
+
+    public virtual DbSet<PurchaseOrderItem> PurchaseOrderItems { get; set; }
+
+    public virtual DbSet<Shelf> Shelves { get; set; }
+
+    public virtual DbSet<Shipment> Shipments { get; set; }
+
+    public virtual DbSet<Vendor> Vendors { get; set; }
+
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Album>(entity =>

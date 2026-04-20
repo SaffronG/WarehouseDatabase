@@ -5,7 +5,11 @@ using Backend.Entities;
 
 public class ItemServices
 {
-    private readonly AppDbContext _ctxt = new();
+    private readonly AppDbContext _ctxt;
+    public ItemServices(AppDbContext context)
+    {
+        _ctxt = context;
+    }
     async public Task CreatePurchaseOrderAsync(int itemId, int quantity)
     {
         if (quantity <= 0)
