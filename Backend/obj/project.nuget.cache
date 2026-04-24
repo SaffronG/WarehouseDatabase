@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "XR4INB/SFjs=",
+  "dgSpecHash": "ve00eLG9qCk=",
   "success": true,
-  "projectFilePath": "C:\\Users\\chase\\Repos\\WarehouseDatabase\\Backend\\Backend.csproj",
+  "projectFilePath": "C:\\Users\\chase\\Repos\\WarehouseDatabase\\backend\\Backend.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\chase\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\chase\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\10.0.5\\microsoft.aspnetcore.authentication.jwtbearer.10.0.5.nupkg.sha512",

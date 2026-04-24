@@ -17,6 +17,26 @@ public class InventoryController : ControllerBase
         _workflowService = workflowService;
     }
 
+    [HttpGet]
+    public async Task<ActionResult<IReadOnlyList<InventoryByBinResponse>>> Get([FromQuery] int? productId)
+    {
+        try
+        {
+            if (productId.HasValue)
+            {
+                var inventory = await _workflowService.GetInventoryByProductAsync(productId.Value);
+                return Ok(inventory);
+            }
+
+            var allInventory = await _workflowService.GetInventoryAsync();
+            return Ok(allInventory);
+        }
+        catch (KeyNotFoundException ex)
+        {
+            return NotFound(ex.Message);
+        }
+    }
+
     [HttpPost("store")]
     public async Task<IActionResult> Store([FromBody] InventoryStoreRequest request)
     {

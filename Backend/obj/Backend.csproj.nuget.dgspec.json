@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\chase\\Repos\\WarehouseDatabase\\Backend\\Backend.csproj": {}
+    "C:\\Users\\chase\\Repos\\WarehouseDatabase\\backend\\Backend.csproj": {}
   },
   "projects": {
-    "C:\\Users\\chase\\Repos\\WarehouseDatabase\\Backend\\Backend.csproj": {
+    "C:\\Users\\chase\\Repos\\WarehouseDatabase\\backend\\Backend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\chase\\Repos\\WarehouseDatabase\\Backend\\Backend.csproj",
+        "projectUniqueName": "C:\\Users\\chase\\Repos\\WarehouseDatabase\\backend\\Backend.csproj",
         "projectName": "Backend",
-        "projectPath": "C:\\Users\\chase\\Repos\\WarehouseDatabase\\Backend\\Backend.csproj",
+        "projectPath": "C:\\Users\\chase\\Repos\\WarehouseDatabase\\backend\\Backend.csproj",
         "packagesPath": "C:\\Users\\chase\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\chase\\Repos\\WarehouseDatabase\\Backend\\obj\\",
+        "outputPath": "C:\\Users\\chase\\Repos\\WarehouseDatabase\\backend\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\chase\\AppData\\Roaming\\NuGet\\NuGet.Config"

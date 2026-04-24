@@ -39,4 +39,20 @@ public record InventoryResponse(int BinId, int ItemId, int Quantity);
 
 public record OrderLineResponse(int ItemId, int Quantity);
 
-public record OrderResponse(int Id, DateTime DateOrdered, string Status, IReadOnlyList<OrderLineResponse> Items);
+public record OrderResponse(
+    int Id, 
+    DateTime DateOrdered, 
+    string Status, 
+    IReadOnlyList<OrderLineResponse> Items,
+    DateTime? DatePicked = null,
+    DateTime? DatePacked = null,
+    DateTime? DateShipped = null);
+
+public record InventoryItemResponse(
+    int ItemId, 
+    int TotalQuantity);
+
+public record InventoryByBinResponse(
+    int BinId, 
+    int ItemId, 
+    int Quantity);

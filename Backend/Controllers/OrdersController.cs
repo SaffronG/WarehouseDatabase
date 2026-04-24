@@ -17,6 +17,20 @@ public class OrdersController : ControllerBase
         _workflowService = workflowService;
     }
 
+    [HttpGet("{id}")]
+    public async Task<ActionResult<OrderResponse>> Get(int id)
+    {
+        try
+        {
+            var result = await _workflowService.GetOrderAsync(id);
+            return Ok(result);
+        }
+        catch (KeyNotFoundException ex)
+        {
+            return NotFound(ex.Message);
+        }
+    }
+
     [HttpPost]
     public async Task<IActionResult> Create([FromBody] OrderCreateRequest request)
     {

@@ -281,6 +281,51 @@ public class WarehouseWorkflowService
             order.Id,
             order.DateOrdered ?? DateTime.UtcNow,
             order.Status,
-            order.SalesOrderItems.Select(i => new OrderLineResponse(i.ItemId, i.Quantity)).ToList());
+            order.SalesOrderItems.Select(i => new OrderLineResponse(i.ItemId, i.Quantity)).ToList(),
+            order.DatePicked,
+            order.DatePacked,
+            order.DateShipped);
+    }
+
+    public async Task<IReadOnlyList<InventoryByBinResponse>> GetInventoryAsync()
+    {
+        var inventory = await _context.Bins
+            .Where(b => b.Quantity != null && b.Quantity > 0)
+            .Select(b => new InventoryByBinResponse(
+                b.Id,
+                b.ItemId ?? 0,
+                b.Quantity ?? 0))
+            .ToListAsync();
+
+        return inventory.AsReadOnly();
+    }
+
+    public async Task<IReadOnlyList<InventoryByBinResponse>> GetInventoryByProductAsync(int productId)
+    {
+        var item = await _context.Items.FirstOrDefaultAsync(i => i.Id == productId);
+        if (item is null)
+            throw new KeyNotFoundException($"Item {productId} not found.");
+
+        var inventory = await _context.Bins
+            .Where(b => b.ItemId == productId && b.Quantity != null && b.Quantity > 0)
+            .Select(b => new InventoryByBinResponse(
+                b.Id,
+                b.ItemId ?? 0,
+                b.Quantity ?? 0))
+            .ToListAsync();
+
+        return inventory.AsReadOnly();
+    }
+
+    public async Task<OrderResponse> GetOrderAsync(int orderId)
+    {
+        var order = await _context.Orders
+            .Include(o => o.SalesOrderItems)
+            .FirstOrDefaultAsync(o => o.Id == orderId);
+
+        if (order is null)
+            throw new KeyNotFoundException($"Order {orderId} not found.");
+
+        return BuildOrderResponse(order);
     }
 }
